@@ -9,7 +9,7 @@ node{
 	}
 	
 	stage('SourceCodeMgmt') {
-		git changelog: false, poll: false, url: 'https://github.com/basivireddy/counterwebapp.git'
+		git changelog: false, poll: false, url: 'https://github.com/basivireddy/CounterWebApp.git'
 	}
 	
 	stage('Build and Package') {
