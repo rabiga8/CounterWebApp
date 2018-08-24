@@ -16,9 +16,9 @@ node{
 	    build("maven 3.5.4", "package");
 	}
 	
-	stage('SonarQube analysis') {
-		checkCodeQuality("SonarQube");
-    }
+//	stage('SonarQube analysis') {
+//		checkCodeQuality("SonarQube");
+//    }
 
 	stage('Docker Build and Publish') {
 		buildAndPush('basivireddy', "${env.JOB_NAME}", 'v1');
