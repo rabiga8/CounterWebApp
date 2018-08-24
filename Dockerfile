@@ -1,4 +1,4 @@
 FROM tomcat:latest
-MAINTAINER d.basivireddy@gmail.com
+MAINTAINER smattareddy2016@gmail.com
 COPY target/CounterWebApp.war /opt/tomcat/webapps/
 CMD ["/opt/vimoservices"]
