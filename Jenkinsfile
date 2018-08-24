@@ -46,6 +46,7 @@ def buildAndPush(registryID, imageName, version){
     try {
 	    app = docker.build("${registryID}/${imageName}")
 		docker.withRegistry('https://registry.hub.docker.com', 'docker-credentials') {
+		    sh "echo ${version}.${env.BUILD_NUMBER} "
 		    app.push("${version}.${env.BUILD_NUMBER}")
 		}
 	} catch (error){
