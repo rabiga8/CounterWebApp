@@ -9,7 +9,7 @@ node{
 	}
 	
 	stage('SourceCodeMgmt') {
-		git changelog: false, poll: false, url: 'https://github.com/basivireddy/CounterWebApp.git'
+		git changelog: false, poll: false, url: 'https://github.com/mattareddy357/CounterWebApp.git'
 	}
 	
 	stage('Build and Package') {
@@ -21,11 +21,11 @@ node{
 //    }
 
 	stage('Docker Build and Publish') {
-		buildAndPush('basivireddy', "${env.JOB_NAME}", 'v1');
+		buildAndPush('mattareddy357', "${env.JOB_NAME}", 'v1');
     }
 	
     stage('Deploy to OpenShift') {
-		deployOpenShift('basivireddy', "${env.JOB_NAME}", 'v1', "${env.BUILD_NUMBER}", "piab-demo");
+		deployOpenShift('mattareddy357', "${env.JOB_NAME}", 'v1', "${env.BUILD_NUMBER}", "piab-demo");
     }
 }
 
