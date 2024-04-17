@@ -6,9 +6,9 @@ node {
 		'''
 	}
 	
-	stage('SourceCodeMgmt') {
-		git changelog: false, poll: false, url: 'https://github.com/mattareddy357/CounterWebApp.git'
-	}
+	// stage('SourceCodeMgmt') {
+	// 	git changelog: false, poll: false, url: 'https://github.com/mattareddy357/CounterWebApp.git'
+	// }
 	
 	// stage('Build and Package') {
 	//     build("maven 3.5.4", "package");
