@@ -4,6 +4,7 @@ pipeline {
         DOCKER_CREDENTIALS_ID = '5aec70f1-576f-4bbf-8388-65b31ae0113c'
         DOCKER_IMAGE_NAME = 'rabiga8/group-image'
     }
+    stages{
 	stage('Initialize') {
 		sh '''
 		echo "PATH = %PATH%"
@@ -46,6 +47,7 @@ pipeline {
 	stage('Deploy to OpenShift') {
 		deployOpenShift('mattareddy357', "${env.JOB_NAME}", 'v1', "${env.BUILD_NUMBER}", "piab-demo");
 	}
+}
 }
 
 def build(mvnVersion, task){
