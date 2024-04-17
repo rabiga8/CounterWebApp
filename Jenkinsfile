@@ -12,9 +12,25 @@ node{
 		git changelog: false, poll: false, url: 'https://github.com/mattareddy357/CounterWebApp.git'
 	}
 	
-	stage('Build and Package') {
-	    build("maven 3.5.4", "package");
-	}
+	// stage('Build and Package') {
+	//     build("maven 3.5.4", "package");
+	// }
+        stage('Build Maven') {
+            steps {
+                withMaven(globalMavenSettingsConfig: '', 
+                          jdk: '', maven: 'maven', 
+                          mavenSettingsConfig: '', 
+                          traceability: true) {
+                    sh 'mvn clean package'
+                }
+            }
+            post {
+                success {
+                    echo "Archiving artifacts"
+                    archiveArtifacts artifacts: '**/target/*.war'
+                }
+            }
+        }
 	
 	stage('SonarQube analysis') {
 		checkCodeQuality("sonar");
