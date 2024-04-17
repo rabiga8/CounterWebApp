@@ -1,4 +1,9 @@
-node {
+pipeline {
+    agent any
+    environment {
+        DOCKER_CREDENTIALS_ID = '5aec70f1-576f-4bbf-8388-65b31ae0113c'
+        DOCKER_IMAGE_NAME = 'rabiga8/group-image'
+    }
 	stage('Initialize') {
 		sh '''
 		echo "PATH = %PATH%"
